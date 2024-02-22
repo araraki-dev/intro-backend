@@ -1,16 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Todo List</title>
-</head>
-<body>
+{% extends 'todos/base.html' %}
+
+{% block content %}
     <h1>Todo List</h1>
-    <ul>
+    <ul class="list-group">
         {% for todo in todos %}
-            <li><a href="{% url 'todo_detail' todo.id %}">{{ todo.title }}</a></li>
+            <li class="list-group-item"><a href="{% url 'todo_detail' todo.id %}">{{ todo.title }}</a></li>
         {% endfor %}
     </ul>
-    <a href="{% url 'todo_create' %}">Create New Todo</a>
-</body>
-</html>
+    <a href="{% url 'todo_create' %}" class="btn btn-primary mt-3">Create New Todo</a>
+{% endblock %}

@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create Todo</title>
-</head>
-<body>
+{% extends 'todos/base.html' %}
+
+{% block content %}
     <h1>Create Todo</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
-</body>
-</html>
+{% endblock %}
