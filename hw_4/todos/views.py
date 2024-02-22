@@ -33,7 +33,8 @@ def edit_todo_list(request, todo_list_id):
         form = TodoListForm(request.POST, instance=todo_list)
         if form.is_valid():
             form.save()
-            return redirect('todos/todo-list-detail', todo_list_id=todo_list.id)
+            # return redirect('todos/todo-list-detail', todo_list_id=todo_list.id)
+            return redirect(f'/{todo_list.id}/')
     else:
         form = TodoListForm(instance=todo_list)
     return render(request, 'todos/edit_todo_list.html', {'form': form})
@@ -51,7 +52,8 @@ def edit_todo(request, todo_id):
         form = TodoForm(request.POST, instance=todo)
         if form.is_valid():
             form.save()
-            return redirect('todo-list-detail', todo_list_id=todo.todo_list.id)
+            # return redirect('todo-list-detail', todo_list_id=todo.todo_list.id)
+            return redirect(f'{todo.todo_list.id}/')
     else:
         form = TodoForm(instance=todo)
     return render(request, 'todos/edit_todo.html', {'form': form})

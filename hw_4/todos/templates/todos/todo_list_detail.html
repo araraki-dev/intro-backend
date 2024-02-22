@@ -11,7 +11,9 @@
     {% endfor %}
 </ul>
 
-<a href="{% url 'edit-todo-list' todo_list.id %}">Edit</a>
+<a href="{% url 'edit-todo-list' todo_list_id=todo_list.id %}">Edit</a>
+
+
 <form action="{% url 'delete-todo-list' todo_list.id %}" method="post">
     {% csrf_token %}
     <button type="submit">Delete</button>
